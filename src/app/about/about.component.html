@@ -1,0 +1,51 @@
+<mat-card appearance="outlined" style="margin-top: 12px;">
+  <mat-card-content>
+    <h2>Pivot Table</h2>
+    <pivot-table [table]="pivotTable"></pivot-table>
+    <mat-form-field style="padding-top: 12px; max-width: 80%; color: #fff !important" appearance="fill">
+      <mat-label style="font-size: 16px; color: #000; line-height: 16px;">Select a pivot</mat-label>
+      <mat-select style="color: #000 !important;" [(value)]="selectedPivot" (selectionChange)="onChangePivot()">
+        <mat-option *ngFor="let p of selectedPivots" [value]="p">
+          {{p.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field style="padding-top: 12px; max-width: 80%; color: #fff !important" appearance="fill">
+      <mat-label style="font-size: 16px; color: #000; line-height: 16px;">Select a column group</mat-label>
+      <mat-select style="color: #000 !important;" [(value)]="selectedColumnGroup" (selectionChange)="onChangeColumnGroup()">
+        <mat-option *ngFor="let p of selectedColumnGroups" [value]="p">
+          {{p.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field style="padding-top: 12px; max-width: 80%; color: #fff !important" appearance="fill">
+      <mat-label style="font-size: 16px; color: #000; line-height: 16px;">Select an aggregate</mat-label>
+      <mat-select style="color: #000 !important;" [(value)]="selectedAggregate" (selectionChange)="onChangeAggregate()">
+        <mat-option *ngFor="let p of selectedAggregates" [value]="p">
+          {{p.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="addEmptyRowAtBottom" (change)="onAddEmptyRowAtBottomChange()">
+      Add empty row at bottom
+    </mat-checkbox>
+  </mat-card-content>
+</mat-card>
+
+<mat-card appearance="outlined" style="margin-top: 12px;">
+  <mat-card-content>
+    <h2>Table</h2>
+    <table>
+      <thead style="border: 1px solid black;">
+        <tr>
+          <th *ngFor="let column of pivotTable.columns" style="border: 1px solid black;">{{column.label}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of pivotTable.data">
+          <td *ngFor="let column of pivotTable.columns" style="border: 1px solid black;">{{data[column.key]}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-card-content>
+</mat-card>
