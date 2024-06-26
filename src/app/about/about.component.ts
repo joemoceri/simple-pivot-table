@@ -149,6 +149,7 @@ export class AboutComponent
 
   pivotValues: any[] = [];
   pivotTable: PivotTable;
+
   selectedPivots: any[] = [
     {
       label: 'Date Shipped',
@@ -177,7 +178,6 @@ export class AboutComponent
       key: 'businessName',
     },
   ];
-
   selectedAggregates: any[] = [
     {
       label: 'Units Sold',
@@ -194,6 +194,7 @@ export class AboutComponent
   selectedPivot: any;
   selectedColumnGroup: any;
   selectedAggregate: any;
+
   addEmptyRowAtBottom: boolean = false;
 
   constructor(

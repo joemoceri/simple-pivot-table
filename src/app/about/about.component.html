@@ -1,7 +1,9 @@
 <mat-card appearance="outlined" style="margin-top: 12px;">
   <mat-card-content>
     <h2>Pivot Table</h2>
+
     <pivot-table [table]="pivotTable"></pivot-table>
+
     <mat-form-field style="padding-top: 12px; max-width: 80%; color: #fff !important" appearance="fill">
       <mat-label style="font-size: 16px; color: #000; line-height: 16px;">Select a pivot</mat-label>
       <mat-select style="color: #000 !important;" [(value)]="selectedPivot" (selectionChange)="onChangePivot()">
