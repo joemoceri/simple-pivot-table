@@ -358,7 +358,7 @@ h1, h2, h3, h4 {
   padding-right: 0 !important;
 }
 
-.imageRow {
+/*.imageRow {
   text-align: center;
   margin: 0 auto !important;
   margin-bottom: 40px !important;
@@ -370,7 +370,7 @@ h1, h2, h3, h4 {
   padding: 35px;
   border-radius: 30px;
 }
-
+*/
 .image {
   position: relative;
   width: 200px;
@@ -432,19 +432,19 @@ label {
   color: #000;
 }
 
-.jumbotron {
+/*.jumbotron {*/
   /*border-radius: 0px 0px 15px 15px !important;
 	-webkit-border-radius: 0px 0px 15px 15px !important;
 	-moz-border-radius: 0px 0px 15px 15px !important;
 	margin-top: -40px !important;*/
   /*background: url('assets/images/linesVert.png');*/
   /*background: url('assets/images/linesVert.png'), url('assets/images/jumboImage.png');*/
-  background: url('assets/images/jumboImage.png');
+  /*background: url('assets/images/jumboImage.png');
   background-size: cover;
   -webkit-box-shadow: 0 1px 0.5em #000;
   -moz-box-shadow: 0 1px 0.5em #000;
   box-shadow: 0 1px 0.5em #000;
-}
+}*/
 
 .jumbotron h1, .jumbotron p {
   color: #fff;
