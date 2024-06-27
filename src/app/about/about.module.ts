@@ -12,7 +12,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { FormsModule } from '@angular/forms';
-import { PivotTableModule } from './pivot-table/pivot-table.module';
+import { PivotTableModule } from '../pivot-table/pivot-table.module';
 
 const routes: Routes = [
     {

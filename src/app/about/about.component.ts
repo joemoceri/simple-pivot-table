@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { PivotTable, TableColumn } from './pivot-table/pivot-table.component';
+import { PivotTable, TableColumn } from '../pivot-table/pivot-table.component';
 export interface BusinessOrder {
   orderId: number;
   businessName: string;
