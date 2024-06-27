@@ -7,7 +7,7 @@ export interface PivotTable {
   pivotValues?: string[];
   tableHeader?: string;
   pivotHeader?: string;
-  columnHeader?: string;
+  columnDataGroupHeader?: string;
 }
 
 export interface TableColumn {
@@ -15,10 +15,10 @@ export interface TableColumn {
   label: string;
   aggregate?: (tableData: any[], key: string) => string;
   show: boolean;
-  columnGroup?: TableColumnGroup | undefined;
+  columnDataGroup?: TableColumnDataGroup | undefined;
 }
 
-export interface TableColumnGroup {
+export interface TableColumnDataGroup {
   data: any[];
   aggregate: (tableData: any[], key: string, columnGroupKey: string) => string;
   addEmptyRowAtBottom?: boolean;
@@ -40,16 +40,20 @@ export class PivotTableComponent
 
   }
 
-  getPivotData(key: string, pivotValue: string, pivotKey: string, columnGroupKey?: string): string {
+  getPivotData(key: string, pivotValue: string, pivotKey: string, columnDataGroupKey?: string): string {
+    // first get the data that matches the pivot key and the pivot value
     var data = this.table!.data.filter(td => (td as any)[pivotKey] === pivotValue);
 
+    // get the column for this key
     var column = this.table!.columns.filter(th => th.key === key)[0];
 
     var result = "";
 
-    if (column.columnGroup) {
-      result = column.columnGroup.aggregate(data, key, columnGroupKey!);
+    // if it's a column data group use that callback
+    if (column.columnDataGroup) {
+      result = column.columnDataGroup.aggregate(data, key, columnDataGroupKey!);
     }
+    // otherwise use the columns callback
     else if (column.aggregate) {
       result = column.aggregate(data, key);
     }

@@ -1,4 +1,5 @@
 <table>
+  <!-- This block renders the table header, pivot header, the column data group header, and the pivot values extending horizontally -->
   <thead>
     <tr>
       <th style="border: 1px solid black;">{{table!.tableHeader}}</th>
@@ -6,27 +7,34 @@
     </tr>
     <tr>
       <th style="border: 1px solid black;">
-        {{table!.columnHeader}}
+        {{table!.columnDataGroupHeader}}
       </th>
       <td *ngFor="let pivotValue of table!.pivotValues!" style="border: 1px solid black;">{{pivotValue}}</td>
     </tr>
   </thead>
+
+  <!-- We display the actual column records here -->
   <ng-container *ngFor="let column of table!.columns">
     <ng-container *ngIf="column.key !== table!.pivotKey && column.show">
-      <tr *ngIf="!column.columnGroup">
+
+      <!-- If it isn't a column data group, then render it as an aggregate at the bottom -->
+      <tr *ngIf="!column.columnDataGroup">
         <th style="border: 1px solid black;">{{column.label}}</th>
         <td *ngFor="let pivotValue of table!.pivotValues!" style="border: 1px solid black;">
           {{getPivotData(column.key, pivotValue, table!.pivotKey!)}}
         </td>
       </tr>
-      <ng-container *ngIf="column.columnGroup">
-        <tr *ngFor="let data of column.columnGroup.data">
+      <!-- If it is a column data group, render out the column data group data first, then output the pivot data -->
+      <ng-container *ngIf="column.columnDataGroup">
+        <tr *ngFor="let data of column.columnDataGroup.data">
           <th style="border: 1px solid black; font-weight: 400;">{{data}}</th>
           <td *ngFor="let pivotValue of table!.pivotValues!" style="border: 1px solid black;">
             {{getPivotData(column.key, pivotValue, table!.pivotKey!, data)}}
           </td>
         </tr>
-        <tr *ngIf="column.columnGroup.addEmptyRowAtBottom">
+
+        <!-- Optionally add an empty row -->
+        <tr *ngIf="column.columnDataGroup.addEmptyRowAtBottom">
           <th style="border: 1px solid black;">&nbsp;</th>
           <td *ngFor="let pivotValue of table!.pivotValues!" style="border: 1px solid black;">
             &nbsp;

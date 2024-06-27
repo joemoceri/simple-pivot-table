@@ -147,7 +147,6 @@ export class AboutComponent
     },
   ];
 
-  pivotValues: any[] = [];
   pivotTable: PivotTable;
 
   selectedPivots: any[] = [
@@ -164,7 +163,7 @@ export class AboutComponent
       key: 'businessName',
     },
   ];
-  selectedColumnGroups: any[] = [
+  selectedColumnDataGroups: any[] = [
     {
       label: 'Date Shipped',
       key: 'dateShipped',
@@ -192,7 +191,7 @@ export class AboutComponent
   ];
 
   selectedPivot: any;
-  selectedColumnGroup: any;
+  selectedColumnDataGroup: any;
   selectedAggregate: any;
 
   addEmptyRowAtBottom: boolean = false;
@@ -211,13 +210,13 @@ export class AboutComponent
     this.selectedPivot = this.selectedPivots.filter(sp => sp.key === 'zipCode')[0];
     this.onChangePivot();
 
-    this.selectedColumnGroup = this.selectedColumnGroups.filter(cg => cg.key === 'businessName')[0];
-    this.onChangeColumnGroup();
+    this.selectedColumnDataGroup = this.selectedColumnDataGroups.filter(cg => cg.key === 'businessName')[0];
+    this.onChangeColumnDataGroup();
   }
 
   onAddEmptyRowAtBottomChange(): void {
-    const column = this.pivotTable.columns.filter(c => !!c.columnGroup)[0];
-    column.columnGroup!.addEmptyRowAtBottom = this.addEmptyRowAtBottom;
+    const column = this.pivotTable.columns.filter(c => !!c.columnDataGroup)[0];
+    column.columnDataGroup!.addEmptyRowAtBottom = this.addEmptyRowAtBottom;
   }
 
   onChangeAggregate(): void {
@@ -232,26 +231,26 @@ export class AboutComponent
     aggColumns.filter(c => c.key === selectedAggregateKey)[0].show = true;
   }
 
-  onChangeColumnGroup(): void {
-    this.setColumnGroup(this.selectedColumnGroup.key);
+  onChangeColumnDataGroup(): void {
+    this.setColumnDataGroup(this.selectedColumnDataGroup.key);
   }
 
-  setColumnGroup(selectedColumnGroupKey: string): void {
-    var column = this.pivotTable.columns.filter(c => c.key === selectedColumnGroupKey)[0];
-    var previousGroup = this.pivotTable.columns.filter(c => !!c.columnGroup)[0];
+  setColumnDataGroup(selectedColumnDataGroupKey: string): void {
+    var column = this.pivotTable.columns.filter(c => c.key === selectedColumnDataGroupKey)[0];
+    var previousGroup = this.pivotTable.columns.filter(c => !!c.columnDataGroup)[0];
     if (previousGroup) {
       previousGroup.show = false;
     }
 
-    this.pivotTable.columns.forEach(c => c.columnGroup = undefined);
+    this.pivotTable.columns.forEach(c => c.columnDataGroup = undefined);
 
-    column.columnGroup = {
-      data: this.getUnique(this.tableData, selectedColumnGroupKey),
-      aggregate: (data, key, columnGroupKey): string => {
+    column.columnDataGroup = {
+      data: this.getUnique(this.tableData, selectedColumnDataGroupKey),
+      aggregate: (data, key, columnDataGroupKey): string => {
         var result = 0;
 
         data.forEach(td => {
-          if (columnGroupKey === td[key]) {
+          if (columnDataGroupKey === td[key]) {
             result += (td as any)[this.selectedAggregate.key];
           }
         });
@@ -262,7 +261,7 @@ export class AboutComponent
     };
     column.show = true;
 
-    this.pivotTable.columnHeader = column.label;
+    this.pivotTable.columnDataGroupHeader = column.label;
   }
 
   onChangePivot(): void {
@@ -275,15 +274,15 @@ export class AboutComponent
     this.pivotTable.pivotHeader = this.tableColumns.filter(c => c.key === this.pivotTable.pivotKey)[0].label;
   }
 
-  getPivotData(key: string, pivotValue: string, pivotKey: string, columnGroupKey?: string): string {
+  getPivotData(key: string, pivotValue: string, pivotKey: string, columnDataGroupKey?: string): string {
     var data = this.tableData.filter(td => (td as any)[pivotKey] === pivotValue);
 
     var column = this.tableColumns.filter(th => th.key === key)[0];
 
     var result = "";
 
-    if (column.columnGroup) {
-      result = column.columnGroup.aggregate(data, key, columnGroupKey!);
+    if (column.columnDataGroup) {
+      result = column.columnDataGroup.aggregate(data, key, columnDataGroupKey!);
     }
     else if (column.aggregate) {
       result = column.aggregate(data, key);

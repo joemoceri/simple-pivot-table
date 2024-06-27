@@ -13,9 +13,9 @@
       </mat-select>
     </mat-form-field>
     <mat-form-field style="padding-top: 12px; max-width: 80%; color: #fff !important" appearance="fill">
-      <mat-label style="font-size: 16px; color: #000; line-height: 16px;">Select a column group</mat-label>
-      <mat-select style="color: #000 !important;" [(value)]="selectedColumnGroup" (selectionChange)="onChangeColumnGroup()">
-        <mat-option *ngFor="let p of selectedColumnGroups" [value]="p">
+      <mat-label style="font-size: 16px; color: #000; line-height: 16px;">Select a column data group</mat-label>
+      <mat-select style="color: #000 !important;" [(value)]="selectedColumnDataGroup" (selectionChange)="onChangeColumnDataGroup()">
+        <mat-option *ngFor="let p of selectedColumnDataGroups" [value]="p">
           {{p.label}}
         </mat-option>
       </mat-select>
