@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { AboutComponent } from './about.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { PublicModule } from '../public/public.module';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
@@ -35,7 +34,6 @@ const routes: Routes = [
       MatDividerModule,
       PublicModule,
       CommonModule,
-      FlexLayoutModule,
       MatCardModule,
       MatFormFieldModule,
       MatSelectModule,

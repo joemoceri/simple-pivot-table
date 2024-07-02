@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,7 +19,6 @@ import { PivotTableComponent } from './pivot-table.component';
       MatIconModule,
       MatDividerModule,
       CommonModule,
-      FlexLayoutModule,
       MatCardModule,
       MatFormFieldModule,
       MatSelectModule,

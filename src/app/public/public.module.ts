@@ -3,7 +3,6 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { PublicComponent } from './public.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatMenuModule } from '@angular/material/menu';
 
 
@@ -16,7 +15,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatMenuModule,
     MatIconModule,
     RouterModule,
-    FlexLayoutModule
   ],
   exports: [
     PublicComponent
