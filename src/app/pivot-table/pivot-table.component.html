@@ -15,7 +15,7 @@
 
   <!-- We display the actual column records here -->
   <ng-container *ngFor="let column of table!.columns">
-    <ng-container *ngIf="column.key !== table!.pivotKey && column.show">
+    <ng-container *ngIf="column.show">
 
       <!-- If it isn't a column data group, then render it as an aggregate at the bottom -->
       <tr *ngIf="!column.columnDataGroup">
@@ -26,12 +26,14 @@
       </tr>
       <!-- If it is a column data group, render out the column data group data first, then output the pivot data -->
       <ng-container *ngIf="column.columnDataGroup">
-        <tr *ngFor="let data of column.columnDataGroup.data">
-          <th style="border: 1px solid black; font-weight: 400;">{{data}}</th>
-          <td *ngFor="let pivotValue of table!.pivotValues!" style="border: 1px solid black;">
-            {{getPivotData(column.key, pivotValue, table!.pivotKey!, data)}}
-          </td>
-        </tr>
+        <ng-container *ngIf="column.key !== table!.pivotKey">
+          <tr *ngFor="let data of column.columnDataGroup.data">
+            <th style="border: 1px solid black; font-weight: 400;">{{data}}</th>
+            <td *ngFor="let pivotValue of table!.pivotValues!" style="border: 1px solid black;">
+              {{getPivotData(column.key, pivotValue, table!.pivotKey!, data)}}
+            </td>
+          </tr>
+        </ng-container>
 
         <!-- Optionally add an empty row -->
         <tr *ngIf="column.columnDataGroup.addEmptyRowAtBottom">

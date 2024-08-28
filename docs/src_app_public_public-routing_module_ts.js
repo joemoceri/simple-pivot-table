@@ -547,7 +547,7 @@ function PivotTableComponent_ng_container_11_ng_container_1_tr_1_Template(rf, ct
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r3.table.pivotValues);
   }
 }
-function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_1_td_3_Template(rf, ctx) {
+function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_ng_container_1_tr_1_td_3_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "td", 0);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](1);
@@ -556,27 +556,39 @@ function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_1_
   if (rf & 2) {
     const pivotValue_r5 = ctx.$implicit;
     const data_r6 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]().$implicit;
-    const column_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3).$implicit;
+    const column_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4).$implicit;
     const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"](" ", ctx_r3.getPivotData(column_r3.key, pivotValue_r5, ctx_r3.table.pivotKey, data_r6), " ");
   }
 }
-function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_1_Template(rf, ctx) {
+function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_ng_container_1_tr_1_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "tr")(1, "th", 5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_1_td_3_Template, 2, 1, "td", 2);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](3, PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_ng_container_1_tr_1_td_3_Template, 2, 1, "td", 2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
   }
   if (rf & 2) {
     const data_r6 = ctx.$implicit;
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](4);
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](5);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate"](data_r6);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", ctx_r3.table.pivotValues);
+  }
+}
+function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_ng_container_1_Template(rf, ctx) {
+  if (rf & 1) {
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_ng_container_1_tr_1_Template, 4, 2, "tr", 3);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
+  }
+  if (rf & 2) {
+    const column_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](3).$implicit;
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", column_r3.columnDataGroup.data);
   }
 }
 function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_2_td_3_Template(rf, ctx) {
@@ -603,13 +615,14 @@ function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_2_
 function PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_Template(rf, ctx) {
   if (rf & 1) {
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerStart"](0);
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_1_Template, 4, 2, "tr", 3)(2, PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_2_Template, 4, 1, "tr", 4);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](1, PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_ng_container_1_Template, 2, 1, "ng-container", 4)(2, PivotTableComponent_ng_container_11_ng_container_1_ng_container_2_tr_2_Template, 4, 1, "tr", 4);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementContainerEnd"]();
   }
   if (rf & 2) {
     const column_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"](2).$implicit;
+    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngForOf", column_r3.columnDataGroup.data);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", column_r3.key !== ctx_r3.table.pivotKey);
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", column_r3.columnDataGroup.addEmptyRowAtBottom);
   }
@@ -636,9 +649,8 @@ function PivotTableComponent_ng_container_11_Template(rf, ctx) {
   }
   if (rf & 2) {
     const column_r3 = ctx.$implicit;
-    const ctx_r3 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵnextContext"]();
     _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"]();
-    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", column_r3.key !== ctx_r3.table.pivotKey && column_r3.show);
+    _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("ngIf", column_r3.show);
   }
 }
 class PivotTableComponent {
